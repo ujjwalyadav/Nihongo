@@ -13,11 +13,15 @@ A static, beginner-first Japanese learning website designed to move a complete b
 - Reading and listening mini-lessons
 - Mixed quizzes + mock exam mode
 - 12-week roadmap
+- Journey view showing the current N5 stage, stage mastery and the last 7 days of activity
 - 60-minute daily mission with local completion tracking
+- Spaced repetition deck with Again / Hard / Good / Easy scheduling
+- Browser-based daily journal that records reviews, quizzes, mastered items and completed daily blocks
+- Picture vocabulary cards with simple visual association cues
 - External resource map for official JLPT practice, Japan Foundation lessons, graded reading, audio and optional music study
 - Browser/local TTS support
 - Offline caching after the first successful load
-- Exportable local progress
+- Exportable local progress, SRS schedule and study history
 
 ## Repository structure
 
@@ -71,7 +75,11 @@ No npm install, build command, framework, database, API key, or backend is requi
 
 ## Learning philosophy
 
-The app intentionally pushes a single loop: script → high-frequency words → grammar → easy input → active retrieval. Resource links are supplementary, so beginners do not lose time hopping between websites.
+The app intentionally pushes a single loop: script → high-frequency words → grammar → easy input → active retrieval. Reviews come before new material so old words stay alive while new words and grammar are sprinkled in. Resource links are supplementary, so beginners do not lose time hopping between websites.
+
+## Local study history
+
+The app stores progress in the browser with `localStorage`. Every day gets its own history entry for checklist blocks, spaced-repetition reviews, quiz attempts, mock questions and mastered items. Use **History → Export JSON** to back up or move your progress.
 
 ## Notes
 

@@ -1,4 +1,4 @@
-const CACHE='n5-pathfinder-v1';
+const CACHE='n5-pathfinder-v2';
 const CORE=['./','./index.html','./css/styles.css','./data/n5-data.js','./js/resources.js','./js/app.js','./assets/favicon.svg','./assets/torii.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE))));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));
