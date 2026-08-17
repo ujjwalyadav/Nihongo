@@ -17,7 +17,7 @@ A static, beginner-first Japanese learning website designed to move a complete b
 - 60-minute daily mission with local completion tracking
 - Spaced repetition deck with Again / Hard / Good / Easy scheduling
 - Browser-based daily journal that records reviews, quizzes, mastered items and completed daily blocks
-- Picture vocabulary cards with simple visual association cues
+- 486 individualized vocabulary illustration files, one per word
 - External resource map for official JLPT practice, Japan Foundation lessons, graded reading, audio and optional music study
 - Browser/local TTS support
 - Offline caching after the first successful load
@@ -33,7 +33,10 @@ n5-pathfinder/
 ├── service-worker.js
 ├── assets/
 │   ├── favicon.svg
-│   └── torii.svg
+│   ├── torii.svg
+│   └── vocab/
+│       ├── manifest.json
+│       └── v001.svg ... v486.svg
 ├── css/
 │   └── styles.css
 ├── data/
@@ -69,6 +72,7 @@ No npm install, build command, framework, database, API key, or backend is requi
 ## Editing content
 
 - Core curriculum: `data/n5-data.js`
+- Vocabulary illustrations: `assets/vocab/`
 - External resources/music links: `js/resources.js`
 - App logic/views: `js/app.js`
 - Visual design: `css/styles.css`

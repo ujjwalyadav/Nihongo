@@ -253,7 +253,7 @@ function visualFor(v){
 }
 function vocabPicture(v, small=false){
   const pic=visualFor(v);
-  return `<div class="picture-cue ${small?'small':''}" aria-label="visual cue"><span>${pic.icon}</span><small>${esc(pic.hint)}</small></div>`;
+  return `<figure class="picture-cue ${small?'small':''}" aria-label="visual cue"><img src="assets/vocab/${esc(v.id)}.svg" alt="Illustration for ${esc(v.jp)}: ${esc(v.en)}" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><figcaption><span>${pic.icon}</span><small>${esc(pic.hint)}</small></figcaption></figure>`;
 }
 function lessonCounts(week){
   const vocab=DATA.vocab.filter(x=>x.lesson<=week).length;
