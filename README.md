@@ -17,7 +17,7 @@ A static, beginner-first Japanese learning website designed to move a complete b
 - 60-minute daily mission with local completion tracking
 - Spaced repetition deck with Again / Hard / Good / Easy scheduling
 - Browser-based daily journal that records reviews, quizzes, mastered items and completed daily blocks
-- 486 individualized vocabulary illustration files, one per word
+- 486 real public-image vocabulary cards with source/license attribution
 - External resource map for official JLPT practice, Japan Foundation lessons, graded reading, audio and optional music study
 - Browser/local TTS support
 - Offline caching after the first successful load
@@ -36,7 +36,9 @@ n5-pathfinder/
 │   ├── torii.svg
 │   └── vocab/
 │       ├── manifest.json
-│       └── v001.svg ... v486.svg
+│       ├── manifest.js
+│       ├── attribution.json
+│       └── optional local image files
 ├── css/
 │   └── styles.css
 ├── data/
@@ -72,7 +74,8 @@ No npm install, build command, framework, database, API key, or backend is requi
 ## Editing content
 
 - Core curriculum: `data/n5-data.js`
-- Vocabulary illustrations: `assets/vocab/`
+- Vocabulary image manifest and attribution: `assets/vocab/`
+- Vocabulary image fetcher: `tools/fetch-vocab-images.js`
 - External resources/music links: `js/resources.js`
 - App logic/views: `js/app.js`
 - Visual design: `css/styles.css`
@@ -84,6 +87,14 @@ The app intentionally pushes a single loop: script → high-frequency words → 
 ## Local study history
 
 The app stores progress in the browser with `localStorage`. Every day gets its own history entry for checklist blocks, spaced-repetition reviews, quiz attempts, mock questions and mastered items. Use **History → Export JSON** to back up or move your progress.
+
+## Vocabulary images
+
+Vocabulary cards use real public image thumbnails indexed through Openverse and Wikimedia Commons where possible. Source, author and license details are stored in `assets/vocab/attribution.json`, and each image card links to its source. The fetcher can be rerun with:
+
+```bash
+node tools/fetch-vocab-images.js --refresh
+```
 
 ## Notes
 

@@ -253,7 +253,10 @@ function visualFor(v){
 }
 function vocabPicture(v, small=false){
   const pic=visualFor(v);
-  return `<figure class="picture-cue ${small?'small':''}" aria-label="visual cue"><img src="assets/vocab/${esc(v.id)}.svg" alt="Illustration for ${esc(v.jp)}: ${esc(v.en)}" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><figcaption><span>${pic.icon}</span><small>${esc(pic.hint)}</small></figcaption></figure>`;
+  const src=(window.N5_VOCAB_IMAGES&&window.N5_VOCAB_IMAGES[v.id]) || '';
+  const attr=(window.N5_VOCAB_ATTRIBUTION&&window.N5_VOCAB_ATTRIBUTION[v.id]) || null;
+  const credit=attr&&attr.source ? `<a class="image-credit" href="${esc(attr.source)}" target="_blank" rel="noopener noreferrer" title="${esc((attr.title||'Image')+' • '+(attr.license||'See source'))}">source</a>` : '';
+  return `<figure class="picture-cue ${small?'small':''}" aria-label="visual cue">${src?`<img src="${esc(src)}" alt="Photo for ${esc(v.jp)}: ${esc(v.en)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('missing');this.remove()">`:''}<figcaption><span>${pic.icon}</span><small>${esc(pic.hint)}</small></figcaption>${credit}</figure>`;
 }
 function lessonCounts(week){
   const vocab=DATA.vocab.filter(x=>x.lesson<=week).length;

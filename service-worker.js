@@ -1,12 +1,12 @@
-const CACHE='n5-pathfinder-v3';
-const CORE=['./','./index.html','./css/styles.css','./data/n5-data.js','./js/resources.js','./js/app.js','./assets/favicon.svg','./assets/torii.svg','./assets/vocab/manifest.json'];
+const CACHE='n5-pathfinder-v4';
+const CORE=['./','./index.html','./css/styles.css','./data/n5-data.js','./js/resources.js','./js/app.js','./assets/favicon.svg','./assets/torii.svg','./assets/vocab/manifest.json','./assets/vocab/manifest.js','./assets/vocab/attribution.json'];
 self.addEventListener('install',e=>e.waitUntil(
   caches.open(CACHE).then(async c=>{
     await c.addAll(CORE);
     try{
       const res=await fetch('./assets/vocab/manifest.json');
       const manifest=await res.json();
-      await c.addAll(Object.values(manifest));
+      await c.addAll(Object.values(manifest).filter(url=>String(url).startsWith('./') || String(url).startsWith('assets/')));
     }catch(_){}
   })
 ));
